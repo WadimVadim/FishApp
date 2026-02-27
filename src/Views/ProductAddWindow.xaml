@@ -1,0 +1,83 @@
+<Window x:Class="fishapp.ProductAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Добавление товара" Height="920" Width="610"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource MainBackgroundBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource AccentBrush}" Padding="10">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="LogoImage" Width="50" Height="50" VerticalAlignment="Center" Margin="0,0,10,0" Visibility="Collapsed"/>
+                <TextBlock Text="Добавление товара" FontSize="24" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <Label Content="Наименование:" FontWeight="Bold"/>
+                    <TextBox x:Name="NameTextBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Артикул:" FontWeight="Bold"/>
+                    <TextBox x:Name="ArticleTextBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Категория:" FontWeight="Bold"/>
+                    <ComboBox x:Name="CategoryComboBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Производитель:" FontWeight="Bold"/>
+                    <ComboBox x:Name="ManufacturerComboBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Поставщик:" FontWeight="Bold"/>
+                    <ComboBox x:Name="SupplierComboBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Цена:" FontWeight="Bold"/>
+                    <TextBox x:Name="PriceTextBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Единица измерения:" FontWeight="Bold"/>
+                    <TextBox x:Name="UnitTextBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Количество на складе:" FontWeight="Bold"/>
+                    <TextBox x:Name="CountTextBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Скидка (%):" FontWeight="Bold"/>
+                    <TextBox x:Name="SaleTextBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Максимальная скидка (%):" FontWeight="Bold"/>
+                    <TextBox x:Name="MaxSaleTextBox" Margin="0,0,0,10"/>
+
+                    <Label Content="Описание:" FontWeight="Bold"/>
+                    <TextBox x:Name="DescriptionTextBox" TextWrapping="Wrap" AcceptsReturn="True" Height="100" Margin="0,0,0,10" VerticalScrollBarVisibility="Auto"/>
+
+                    <Label Content="Путь к изображению:" FontWeight="Bold"/>
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="ImagePathTextBox" Grid.Column="0"/>
+                        <Button x:Name="BrowseImageButton" Content="Обзор..." Click="BrowseImageButton_Click" Grid.Column="1" Margin="5,0,0,0" Padding="10,5"/>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                <Button x:Name="SaveButton" Content="Добавить" Click="SaveButton_Click" Width="150" Margin="0,0,10,0"/>
+                <Button x:Name="CancelButton" Content="Отмена" Click="CancelButton_Click" Width="150"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
